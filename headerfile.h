@@ -1,6 +1,6 @@
 struct BSTnode* BSTinsert(struct BSTnode*,int);
 int BSTtrave(struct BSTnode* ,int);
-void BSTsearch(struct BSTnode*,int,int);
+void BSTsearch(struct BSTnode*,int);
 struct LLnode* find(struct LLnode* ,int );
 struct LLnode* LLinsert(struct LLnode* ,int);
 int LLtrave(struct LLnode* ,int);

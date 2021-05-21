@@ -52,15 +52,26 @@ int BSTtrave(struct BSTnode* head,int Bnum){
 	return p->data;
 }
 
-void BSTsearch(struct BSTnode* head,int search,int Bnum){
-	if(head!=NULL){
-		BSTsearch(head->lnode,search,Bnum);
+void BSTsearch(struct BSTnode* head,int search){
+	/*if(head!=NULL){
+		BSTsearch(head->lnode,search);
 		if(head->data == search){
+			printf("dasd\n");
 			return;
 		}
-		BSTsearch(head->rnode,search,Bnum);
+		BSTsearch(head->rnode,search);
 		
+	}*/
+	if(head==NULL){
+		return ;
 	}
+	else if(head->data == search){
+		return;
+	}
+	else if(head->data>=search){
+		return BSTsearch(head->lnode,search);
+	}
+	else return BSTsearch(head->rnode,search);
 }
 
 struct LLnode* find(struct LLnode* L,int num){
@@ -267,7 +278,7 @@ int main(int argc,char **argv){
 		gettimeofday(&start,NULL);
 		for(int i=0;i<Qnum;i++){
 			search = BSTtrave(head,Bnum);
-			BSTsearch(head,search,Bnum);
+			BSTsearch(head,search);
 		}
 		gettimeofday(&end,NULL);
                 diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
